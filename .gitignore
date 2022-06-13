@@ -1,0 +1,4 @@
+# Git ignore list
+
+bin/**
+bin-int/**

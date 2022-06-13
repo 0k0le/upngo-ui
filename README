@@ -1,0 +1,10 @@
+UPNGO - A Project Creation Utility
+
+3rd Party Notices:
+    - 
+
+The Problem:
+    Project creation without an IDE can be time consuming with certain languages.
+
+The Solution:
+    A TUI project builder that assembles directories, licenses, and build files into consolidated folder
