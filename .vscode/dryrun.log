@@ -1,7 +1,0 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory '/home/okole/Projects/upngo-ui'
-mkdir -p bin bin-int
- 
-echo "Build Finished"
-make: Leaving directory '/home/okole/Projects/upngo-ui'
- 
