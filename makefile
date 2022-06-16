@@ -2,7 +2,7 @@
 # UPNGO Build File
 
 CC=g++
-BUILDFLAGS=-I src/include -Wall -Wextra -pedantic -O2 -std=c++20 -c
+BUILDFLAGS=-I src/include -Wall -Wextra -pedantic -O2 -std=c++2a -c
 LINKERFLAGS=`pkg-config --libs finalcut`
 
 SRCDIR=src

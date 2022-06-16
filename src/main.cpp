@@ -13,11 +13,11 @@
 #include "macros.hpp"
 
 int main(int argc, char** argv, char** envp) {
-    UNUSED_PARAMETER(argc);
-    UNUSED_PARAMETER(argv);
-    UNUSED_PARAMETER(envp);
+    M_UNUSED(argc);
+    M_UNUSED(argv);
+    M_UNUSED(envp);
 
-    PRINT("Launching UPNGO " BUILDVER " 0.00.00");
+    M_PRINT("Launching UPNGO " RELEASE " 0.00.00");
 
     return EXIT_SUCCESS;
 }

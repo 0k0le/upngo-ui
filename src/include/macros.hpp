@@ -1,36 +1,33 @@
 /*
- * macros.hpp
  * Matthew Todd Geiger
+ * macros.hpp
  */
 
 #pragma once
 
 #include <cstdio>
+#include <cstdlib>
 
-#ifndef _DEBUG
-#define BUILDVER "RELEASE"
+#ifdef _DEBUG
+#define RELEASE "DEBUG"
 #else
-#define BUILDVER "DEBUG"
-#endif
-
-// Check for macro conflicts
-#ifdef UNUSED_PARAMETER
-    #error UNUSED_PARAMETER already defined
+#define RELEASE "RELEASE"
 #endif
 
 #ifdef _DEBUG // Debug macros
 
-#define UNUSED_PARAMETER(x) (void)(x)
-#define ERROR(str, ...) fprintf(stderr, "%s:%s() ERROR @ L%d : " str "\n", __FILE__, __func__, __LINE__ __VA_OPT__(,) __VA_ARGS__)
-#define FATAL(str, ...) { fprintf(stderr, "%s:%s() FATAL @ L%d : " str "\n", __FILE__, __func__, __LINE__ __VA_OPT__(,) __VA_ARGS__); exit(EXIT_FAILURE); } (void)(0)
+#define ONLY_DEBUG(x) x
+#define M_UNUSED(x) (void)(x)
+#define M_PRINT(str, ...) printf("%s:%d:%s() " str "\n", __FILE__, __LINE__, __func__, ##__VA_ARGS__)
+#define M_ERR(str, ...) fprintf(stderr, "%s:%d:%s() ERROR: " str "\n", __FILE__, __LINE__, __func__, ##__VA_ARGS__)
+#define M_FATAL(str, ...) { fprintf(stderr, "%s:%d:%s() FATAL: " str "\n", __FILE__, __LINE__, __func__, ##__VA_ARGS__); exit(EXIT_FAILURE); } (void)(0)
 
 #else // Release macros
 
-#define UNUSED_PARAMETER(x)
-#define ERROR(str, ...) fprintf(stderr, "ERROR: " str "\n" __VA_OPT__(,) __VA_ARGS__)
-#define FATAL(str, ...) { fprintf(stderr, "FATAL: " str "\n" __VA_OPT__(,) __VA_ARGS__); exit(EXIT_FAILURE); } (void)(0)
+#define ONLY_DEBUG(x)
+#define M_UNUSED(x)
+#define M_PRINT(str, ...) printf(str "\n", ##__VA_ARGS__)
+#define M_ERR(str, ...) fprintf(stderr, "ERROR: " str "\n", ##__VA_ARGS__)
+#define M_FATAL(str, ...) { fprintf(stderr, "FATAL: " str "\n", ##__VA_ARGS__); exit(EXIT_FAILURE); } (void)(0)
 
 #endif
-
-// Macros independent of version
-#define PRINT(str, ...) printf(str "\n" __VA_OPT__(,) __VA_ARGS__)
