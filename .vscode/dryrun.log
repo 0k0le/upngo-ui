@@ -1,0 +1,8 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/okole/Projects/upngo-ui'
+mkdir -p bin bin-int
+g++ src/main.cpp -I src/include -Wall -Wextra -pedantic -O2 -std=c++20 -c -o bin-int/main.o
+g++ `pkg-config --libs finalcut` bin-int/main.o -o bin/upngo
+echo "Build Finished"
+make: Leaving directory '/home/okole/Projects/upngo-ui'
+ 

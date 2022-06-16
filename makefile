@@ -30,3 +30,13 @@ init:
 	mkdir -p bin bin-int
 
 debug: all
+
+install:
+	cd 3rd/finalcut
+	make install
+	cd ../../
+
+submodules:
+	git submodule update --init
+	cd 3rd/finalcut && autoreconf --install --force && ./configure --prefix=/usr && make -j4
+	cd ../../
